@@ -14,12 +14,13 @@ app.use(express.json());
 //     })
 
 app.get('/api/values', function(req, res) {
-    db.pool.query('SELECT * FROM lists;', 
-    (err, results, fileds) => {
-        if (err) 
-            return res.status(500).send(err);
-        return res.json(results);
-    })
+    // db.pool.query('SELECT * FROM lists;', 
+    // (err, results, fileds) => {
+    //     if (err) 
+    //         return res.status(500).send(err);
+    //     return res.send("get요청 성공");
+    // })
+    return res.send("get요청 성공")
 })
 
 app.post('/api/value', function(req, res, next) {
