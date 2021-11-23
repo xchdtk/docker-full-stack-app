@@ -1,5 +1,7 @@
 const express = require('express');
 const db = require('./db');
+// const mongo = require('./db2');
+// mongo.connect();
 
 const app = express();
 
@@ -24,12 +26,13 @@ app.get('/api/values', function(req, res) {
 })
 
 app.post('/api/value', function(req, res, next) {
-    db.pool.query(`INSERT INTO lists (value) VALUES("${req.body.value}");`,
-    (err, results, fileds) => {
-        if(err) 
-            return res.status(500).send(err);
-        return res.json({ success: true, value: req.body.value})
-    })
+    // db.pool.query(`INSERT INTO lists (value) VALUES("${req.body.value}");`,
+    // (err, results, fileds) => {
+    //     if(err) 
+    //         return res.status(500).send(err);
+    //     return res.json({ success: true, value: req.body.value})
+    // })
+    return res.send("post요청 성공")
 })
 
 app.listen(5000, () => {
